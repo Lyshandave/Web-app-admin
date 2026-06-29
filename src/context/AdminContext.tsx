@@ -251,10 +251,10 @@ export function AdminProvider({ children }: { children: React.ReactNode }) {
           headers,
           cache: "no-store",
         }),
-        fetch(`${import.meta.env.VITE_API_URL || ''}/api/orders", { headers }),
-        fetch(`${import.meta.env.VITE_API_URL || ''}/api/customers", { headers }),
-        fetch(`${import.meta.env.VITE_API_URL || ''}/api/subscriptions", { headers }),
-        fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/profile", { headers }),
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/orders`, { headers }),
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/customers`, { headers }),
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/subscriptions`, { headers }),
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/profile`, { headers }),
       ]);
 
       if (productsRes.ok) {

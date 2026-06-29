@@ -65,7 +65,7 @@ export default function Settings() {
     localStorage.setItem("adminPreferences", JSON.stringify(newPrefs));
     try {
       const token = sessionStorage.getItem("adminToken");
-      await fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/settings", {
+      await fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/settings`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export default function Settings() {
     localStorage.setItem("adminStoreInfo", JSON.stringify(storeInfo));
     try {
       const token = sessionStorage.getItem("adminToken");
-      await fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/settings", {
+      await fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/settings`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
