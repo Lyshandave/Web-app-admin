@@ -216,7 +216,7 @@ export default function Products() {
     setIsDeleting(true);
     try {
       const token = sessionStorage.getItem("adminToken");
-      const res = await fetch(`/api/products/${productToDelete}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/products/${productToDelete}`, {
         method: "DELETE",
         headers: token ? { Authorization: `Bearer ${token}` } : undefined,
       });
@@ -699,7 +699,7 @@ export default function Products() {
                           const base64 = reader.result as string;
                           try {
                             const token = sessionStorage.getItem("adminToken");
-                            const res = await fetch("/api/upload-image", {
+                            const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/upload-image", {
                               method: "POST",
                               headers: {
                                 "Content-Type": "application/json",

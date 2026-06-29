@@ -61,7 +61,7 @@ export default function Profile() {
     };
     try {
       const token = sessionStorage.getItem("adminToken");
-      const res = await fetch("/api/admin/profile", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/profile", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

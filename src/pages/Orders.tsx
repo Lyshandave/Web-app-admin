@@ -114,7 +114,7 @@ export default function Orders() {
           orderId,
           status: "Processing",
         });
-        await fetch(`/api/orders/${orderId}`, {
+        await fetch(`${import.meta.env.VITE_API_URL || ''}/api/orders/${orderId}`, {
           method: "PUT",
           headers,
           body: JSON.stringify({ status: "Processing" }),
@@ -122,7 +122,7 @@ export default function Orders() {
       }
       if (action === "deliver") {
         dispatch({ type: "UPDATE_ORDER_STATUS", orderId, status: "Delivered" });
-        await fetch(`/api/orders/${orderId}`, {
+        await fetch(`${import.meta.env.VITE_API_URL || ''}/api/orders/${orderId}`, {
           method: "PUT",
           headers,
           body: JSON.stringify({ status: "Delivered" }),
@@ -130,7 +130,7 @@ export default function Orders() {
       }
       if (action === "cancel") {
         dispatch({ type: "UPDATE_ORDER_STATUS", orderId, status: "Cancelled" });
-        await fetch(`/api/orders/${orderId}`, {
+        await fetch(`${import.meta.env.VITE_API_URL || ''}/api/orders/${orderId}`, {
           method: "PUT",
           headers,
           body: JSON.stringify({ status: "Cancelled" }),
@@ -138,7 +138,7 @@ export default function Orders() {
       }
       if (action === "delete") {
         dispatch({ type: "DELETE_ORDER", orderId });
-        await fetch(`/api/orders/${orderId}`, {
+        await fetch(`${import.meta.env.VITE_API_URL || ''}/api/orders/${orderId}`, {
           method: "DELETE",
           headers: token ? { Authorization: `Bearer ${token}` } : undefined,
         });

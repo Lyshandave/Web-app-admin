@@ -247,14 +247,14 @@ export function AdminProvider({ children }: { children: React.ReactNode }) {
         subscriptionsRes,
         profileRes,
       ] = await Promise.all([
-        fetch(`/api/products?_t=${fetchStartTime}`, {
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/products?_t=${fetchStartTime}`, {
           headers,
           cache: "no-store",
         }),
-        fetch("/api/orders", { headers }),
-        fetch("/api/customers", { headers }),
-        fetch("/api/subscriptions", { headers }),
-        fetch("/api/admin/profile", { headers }),
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/orders", { headers }),
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/customers", { headers }),
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/subscriptions", { headers }),
+        fetch(`${import.meta.env.VITE_API_URL || ''}/api/admin/profile", { headers }),
       ]);
 
       if (productsRes.ok) {
